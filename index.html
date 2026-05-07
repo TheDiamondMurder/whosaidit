@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>who said it</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-page" aria-labelledby="page-title">
+      <section class="intro">
+        <div class="brand" aria-label="who said it">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>who said it</span>
+        </div>
+
+        <h1 id="page-title">who said it</h1>
+        <p class="lede">upload a WhatsApp export, guess the culprit, keep score locally</p>
+      </section>
+
+      <section class="panel setup-panel" id="setup-panel" aria-label="Game setup">
+        <form id="setup-form" class="setup-form">
+          <label>
+            <span>WhatsApp export</span>
+            <input id="chat-file" type="file" accept=".txt,text/plain" required />
+          </label>
+
+          <div class="field-row">
+            <label>
+              <span>players</span>
+              <input id="player-count" type="number" min="1" max="12" value="2" required />
+            </label>
+
+            <label>
+              <span>rounds</span>
+              <input id="round-count" type="number" min="1" max="50" value="5" required />
+            </label>
+          </div>
+
+          <div class="players-list" id="players-list"></div>
+
+          <p class="status" id="parse-status">No chat loaded yet.</p>
+
+          <button class="button button-light" type="submit">Start Game</button>
+        </form>
+      </section>
+
+      <section class="panel game-panel" id="game-panel" hidden aria-live="polite">
+        <div class="game-topline">
+          <span id="round-label">round 1</span>
+          <span id="turn-label">player</span>
+        </div>
+
+        <blockquote id="quote-card" class="quote-card"></blockquote>
+
+        <div class="options-grid" id="options-grid"></div>
+
+        <p class="result" id="result"></p>
+
+        <div class="actions">
+          <button class="button button-light" id="next-turn" type="button" hidden>
+            Next
+          </button>
+        </div>
+      </section>
+
+      <section class="panel leaderboard-panel" id="leaderboard-panel" hidden>
+        <p class="tools-kicker">leaderboard</p>
+        <h2 id="leaderboard-title">scores</h2>
+        <div class="leaderboard" id="leaderboard"></div>
+        <button class="button button-light" id="play-again" type="button">Play Again</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
